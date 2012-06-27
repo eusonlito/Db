@@ -1,5 +1,7 @@
 composer.lock
 
+default/
+
 libs/composer/
 libs/Respect/
 
