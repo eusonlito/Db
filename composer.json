@@ -1,0 +1,28 @@
+{
+    "name": "ANS/Db",
+    "type": "library",
+    "description": "DB Interface Library",
+    "version": "0.1",
+    "keywords": ["php", "library", "database", "pdo"],
+    "homepage": "https://github.com/eusonlito/Db/",
+    "license": "AGPL-3.0",
+    "authors": [
+        {
+            "name": "A Navalla Suíza",
+            "email": "idc@anavallasuiza.com",
+            "homepage": "http://anavallasuiza.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "idc@anavallasuiza.com",
+        "issues": "https://github.com/eusonlito/Db/issues"
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "Respect/Relational": "*"
+    },
+    "config": {
+        "vendor-dir": "libs"
+    }
+}
