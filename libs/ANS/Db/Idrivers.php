@@ -1,5 +1,5 @@
 <?php
-namespace Db;
+namespace ANS\Db;
 
 interface Idrivers {
     public function getDSN ($options);

@@ -1,5 +1,5 @@
 <?php
-namespace Db;
+namespace ANS\Db;
 
 class Db
 {
@@ -17,14 +17,6 @@ class Db
         }
 
         $this->setSettings();
-    }
-
-    static function autoload ($class) {
-        $file = dirname(__DIR__).'/libs/'.str_replace('\\', '/', $class).'.php';
-
-        if (is_file($file)) {
-            include_once ($file);
-        }
     }
 
     /**
@@ -50,7 +42,7 @@ class Db
         }
 
         if ($cache['expire'] && $cache['interface']) {
-            $this->Cache = new \Cache\Cache($cache);
+            $this->Cache = new \ANS\Cache\Cache($cache);
         } else {
             $this->Cache = false;
         }
@@ -131,7 +123,7 @@ class Db
             throw new \InvalidArgumentException('Sorry but "%s" database is not supported', $this->settings['db']['driver']);
         }
 
-        $class = '\\Db\\Drivers\\'.ucfirst($this->settings['db']['driver']);
+        $class = '\\ANS\\Db\\Drivers\\'.ucfirst($this->settings['db']['driver']);
 
         if (class_exists($class)) {
             $this->Driver = new $class($this);
@@ -140,7 +132,7 @@ class Db
         }
 
         try {
-            $this->Mapper = \Respect\Relational\Mapper(new \PDO(
+            $this->Mapper = new \Respect\Relational\Mapper(new \PDO(
                 $this->Driver->getDSN($this->settings['db']),
                 $this->settings['db']['user'],
                 $this->settings['db']['password'],
@@ -281,5 +273,5 @@ class Db
 }
 
 if (!spl_autoload_functions()) {
-    spl_autoload_register(__NAMESPACE__.'\\Db::autoload');
+    include (__DIR__.'/../../autoload.php');
 }

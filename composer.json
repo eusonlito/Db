@@ -24,5 +24,10 @@
     },
     "config": {
         "vendor-dir": "libs"
+    },
+    "autoload": {
+        "psr-0": {
+            "ANS\\Db": "libs"
+        }
     }
 }

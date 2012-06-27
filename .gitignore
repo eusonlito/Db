@@ -1,6 +1,5 @@
 composer.lock
 
-libs/autoload.php
 libs/composer/
 libs/Respect/
 
